@@ -1,0 +1,5 @@
+D:\хлам\WorkerSalary\WorkerSalary\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\хлам\WorkerSalary\WorkerSalary\bin\Debug\WorkerSalary.exe
+D:\хлам\WorkerSalary\WorkerSalary\bin\Debug\WorkerSalary.pdb
+D:\хлам\WorkerSalary\WorkerSalary\obj\x86\Debug\WorkerSalary.exe
+D:\хлам\WorkerSalary\WorkerSalary\obj\x86\Debug\WorkerSalary.pdb
