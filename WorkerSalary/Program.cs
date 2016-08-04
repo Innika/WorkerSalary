@@ -112,7 +112,7 @@ namespace WorkerSalary
         }
         public static bool operator ==(Worker a, Worker b)
         {
-            return a.Name == b.Name;
+            return a.AverageMonthSalary == b.AverageMonthSalary;
         }
 
         public static bool operator !=(Worker a, Worker b)
@@ -123,7 +123,7 @@ namespace WorkerSalary
         public override string ToString()
         {
 
-            return String.Format("Average:{0}    Id:{1}      Name:{2}", this.AverageMonthSalary, this.Id, this.name);
+            return String.Format("Id:{1}      AverageSalary:{0}    Name:{2}", this.AverageMonthSalary, this.Id, this.name);
         }
 
 
@@ -165,7 +165,9 @@ namespace WorkerSalary
             myFile.OutputInformation(EndList, "Before");
             EndList.Sort();
             myFile.OutputInformation(EndList, "After");
+            Console.WriteLine("Кампот");
             Console.ReadLine();
+
         }
     }
 }
