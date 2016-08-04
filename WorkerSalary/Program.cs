@@ -96,33 +96,33 @@ namespace WorkerSalary
         int id;
         public int Id
         {
-        get {return id; }
-        set {id = value; }
+            get { return id; }
+            set { id = value; }
         }
         public decimal AverageMonthSalary;
         public abstract decimal AverageSalary(decimal salary);
 
         public static bool operator <(Worker a, Worker b)
         {
-            return a < b;
+            return a.AverageMonthSalary < b.AverageMonthSalary;
         }
         public static bool operator >(Worker a, Worker b)
         {
-            return a > b;
+            return a.AverageMonthSalary > b.AverageMonthSalary;
         }
         public static bool operator ==(Worker a, Worker b)
         {
-            return a == b;
+
+            return a.AverageMonthSalary == b.AverageMonthSalary;
         }
 
         public static bool operator !=(Worker a, Worker b)
         {
-            return a != b;
+            return a.AverageMonthSalary != b.AverageMonthSalary;
         }
 
         public override string ToString()
         {
-
             return String.Format("Id:{1}      AverageSalary:{0}    Name:{2}", this.AverageMonthSalary, this.Id, this.name);
         }
 
@@ -130,16 +130,34 @@ namespace WorkerSalary
 
         public int CompareTo(Worker obj)
         {
-            if (obj.AverageMonthSalary < this.AverageMonthSalary) return -1;
-            if (obj.AverageMonthSalary > this.AverageMonthSalary) return 1;
-            if (obj.AverageMonthSalary == this.AverageMonthSalary)
+            if (obj < this) return -1;
+            if (obj > this) return 1;
+            if (obj == this)
             {
-                if (obj.id < this.id) return 1;
-                if (obj.id > this.id) return -1;
-                if (obj.id == this.id) return 0;
+                //char[] arr = obj.Name.ToCharArray();
+                //char[] arr1 = obj.Name.ToCharArray();
+                //CompareString(ref arr, ref arr1);
+
+                return 0;
             }
             return 0;
         }
+
+        //private int CompareString(ref char[] arr, ref char[] arr1)
+        //{
+        //    int index = 0;
+        //    foreach (char a in arr)
+        //    {
+        //        if (arr[index] < arr1[index]) return 1;
+        //        if (arr[index] > arr1[index]) return -1;
+        //        if ((arr[index] == arr1[index]))
+        //        {
+        //            CompareString(ref arr, ref arr1);
+        //            return 0;
+        //        }
+        //    }
+        //    return 0;
+        //}
     }
 
     class FixedSalary : Worker
@@ -170,6 +188,8 @@ namespace WorkerSalary
             NewWorkerFromFile.OutputInformation(EndList, "Before");
             EndList.Sort();
             NewWorkerFromFile.OutputInformation(EndList, "After");
+           
+
             Console.ReadLine();
 
         }
