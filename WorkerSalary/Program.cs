@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace WorkerSalary
 {
-    class myFile
+    class NewWorkerFromFile
     {
         public static List<Worker> GetNamesAndSalaries_FromTheFile_ToNewWorker(string path)
         {
@@ -104,20 +104,20 @@ namespace WorkerSalary
 
         public static bool operator <(Worker a, Worker b)
         {
-            return a.AverageMonthSalary < b.AverageMonthSalary;
+            return a < b;
         }
         public static bool operator >(Worker a, Worker b)
         {
-            return a.AverageMonthSalary > b.AverageMonthSalary;
+            return a > b;
         }
         public static bool operator ==(Worker a, Worker b)
         {
-            return a.AverageMonthSalary == b.AverageMonthSalary;
+            return a == b;
         }
 
         public static bool operator !=(Worker a, Worker b)
         {
-            return a.AverageMonthSalary != b.AverageMonthSalary;
+            return a != b;
         }
 
         public override string ToString()
@@ -130,9 +130,14 @@ namespace WorkerSalary
 
         public int CompareTo(Worker obj)
         {
-            if (obj < this) return -1;
-            if (obj > this) return 1;
-            if (obj == this) return 0;
+            if (obj.AverageMonthSalary < this.AverageMonthSalary) return -1;
+            if (obj.AverageMonthSalary > this.AverageMonthSalary) return 1;
+            if (obj.AverageMonthSalary == this.AverageMonthSalary)
+            {
+                if (obj.id < this.id) return 1;
+                if (obj.id > this.id) return -1;
+                if (obj.id == this.id) return 0;
+            }
             return 0;
         }
     }
@@ -161,11 +166,10 @@ namespace WorkerSalary
         }
         static void Main(string[] args)
         {
-            List<Worker> EndList = myFile.GetNamesAndSalaries_FromTheFile_ToNewWorker(@"D:/checking.txt");
-            myFile.OutputInformation(EndList, "Before");
+            List<Worker> EndList = NewWorkerFromFile.GetNamesAndSalaries_FromTheFile_ToNewWorker(@"D:/checking.txt");
+            NewWorkerFromFile.OutputInformation(EndList, "Before");
             EndList.Sort();
-            myFile.OutputInformation(EndList, "After");
-            Console.WriteLine("Кампот во второй раз");
+            NewWorkerFromFile.OutputInformation(EndList, "After");
             Console.ReadLine();
 
         }
