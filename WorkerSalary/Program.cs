@@ -165,7 +165,7 @@ namespace WorkerSalary
             myFile.OutputInformation(EndList, "Before");
             EndList.Sort();
             myFile.OutputInformation(EndList, "After");
-            Console.WriteLine("Кампот");
+            Console.WriteLine("Кампот во второй раз");
             Console.ReadLine();
 
         }
